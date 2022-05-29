@@ -85,9 +85,17 @@ public class ListVentaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        List<Venta>ventas = ventasController.obtenerListaVentas();
-        System.out.println("N° Venta | Categoria | Cantidad | Precio unit. | Importe V. | %Comision | Importe C.");
+        //VARIABLES
+        List<Venta>ventas; 
         
+        //LECTURA DE DATOS o ASIGNACION
+        ventas = new ArrayList<Venta>();
+        
+        //PROCESO
+        ventas= ventasController.obtenerListaVentas();
+        
+        //RESULTADO
+        System.out.println("N° Venta | Categoria | Cantidad | Precio unit. | Importe V. | %Comision | Importe C.");
         for(int i=0; i<ventas.size();i++){
             System.out.println(ventas.get(i).nventa+"        |      "+ventas.get(i).categoria+"    |    "+ventas.get(i).cant+"    |    "+ventas.get(i).precioxcamion+"    |    "+ventas.get(i).total+"    |   "+ventas.get(i).porcxcomision+"    |    "+ventas.get(i).comisiontotal);
         }

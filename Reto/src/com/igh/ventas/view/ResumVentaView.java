@@ -14,11 +14,11 @@ import java.util.*;
 public class ResumVentaView extends javax.swing.JFrame {
 
     static VentasController ventasController;
-    List<Resumen> reporte;
+    
     public ResumVentaView(VentasController ventasController) {
         initComponents();
         this.ventasController=ventasController;
-        reporte = ventasController.generarReporte();
+        
         this.setLocationRelativeTo(null);
     }
     
@@ -379,6 +379,17 @@ public class ResumVentaView extends javax.swing.JFrame {
         });
     }
     public void setDatos(){
+        //VARIABLES
+        List<Resumen> reporte;
+        
+        //ASIGNACION
+        reporte = new ArrayList<Resumen>();
+        
+        //PROCESO
+        reporte = ventasController.generarReporte();
+        
+        
+        //RESULTADO-REPORTE
         this.jtfCamionA.setText(String.valueOf(reporte.get(0).ncamion));
         this.jtfCamionB.setText(String.valueOf(reporte.get(1).ncamion));
         this.jtfCamionC.setText(String.valueOf(reporte.get(2).ncamion)); 

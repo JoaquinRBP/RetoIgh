@@ -21,22 +21,19 @@ public class VentasController {
     }
     
     public Venta procesarVenta(char categ, int cant){
-        Venta venta = ventasService.procesarVenta(categ, cant);
-        return venta;
-    }
-    public Venta obtenerVenta(int nventa){
-        Venta venta = ventasService.obtenerVenta(nventa-1);
-        return venta;
+        //RESULTADO
+        return ventasService.procesarVenta(categ, cant);
     }
     
     public List<Venta> obtenerListaVentas(){
-        List<Venta> ventas = ventasService.obtenerListaVentas();
-        return ventas;
+        //RESULTADO
+        return ventasService.obtenerListaVentas();
+        
     }
     
     public List<Resumen> generarReporte(){
-        List<Resumen> reporte = ventasService.generarReporte();
-        return reporte;
+        //RESULTADO
+        return ventasService.generarReporte();
     }
     
     

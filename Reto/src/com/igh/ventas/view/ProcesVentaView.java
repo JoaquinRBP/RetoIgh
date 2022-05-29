@@ -306,9 +306,20 @@ public class ProcesVentaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        char categ=this.jtfCategoria.getText().charAt(0);
-        int cant = Integer.parseInt(this.jtfCantCamionetas.getText());
-        Venta venta = this.ventasController.procesarVenta(categ,cant);
+        //VARIABLES
+        char categ;
+        int cant;
+        Venta venta;
+ 
+        //LECTURA DE DATOS
+        cant= Integer.parseInt(this.jtfCantCamionetas.getText());
+        categ=this.jtfCategoria.getText().charAt(0);
+        venta = new Venta();
+        
+        //PROCESO
+        venta= this.ventasController.procesarVenta(categ,cant);
+        
+        //REPORTE
         this.jtfImpComision.setText(String.valueOf(venta.comisiontotal));
         this.jtfImpVenta.setText(String.valueOf(venta.total));
         this.jtfPorcComision.setText(String.valueOf(venta.porcxcomision));
@@ -317,7 +328,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCalcularActionPerformed
 //nuevo
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
+        
         this.jtfCantCamionetas.setText("");
         this.jtfCategoria.setText("");
         this.jtfImpComision.setText("");

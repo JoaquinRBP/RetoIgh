@@ -16,41 +16,59 @@ import java.util.*;
 public class VentasService {
     
     List<Venta> ventas = new ArrayList<Venta>();
-    Resumen ventasA;
-    Resumen ventasB;
-    Resumen ventasC;
-    Resumen total;
+    
     
     
     
     public Venta procesarVenta(char categ, int cant){
-        int n=ventas.size()+1;
-        Venta venta = new Venta(n,categ,cant);
+        //VARIABLES
+        int n;
+        Venta venta;
+        
+        //ASIGNACION
+        n=ventas.size()+1;
+        venta = new Venta();
+        
+        //PROCESO
+        venta.setVenta(n,categ, cant);
         ventas.add(venta);
-        return venta;
-    }
-
-    public Venta obtenerVenta(int nventa){
-        Venta venta = ventas.get(nventa-1);
+        
+        //REPORTE-RESULTADO
         return venta;
     }
     
     public List<Venta> obtenerListaVentas(){
+        
+        //REPORTE-RESULTADO
         return ventas;
     }
     
     public List<Resumen> generarReporte(){
-        ventasA= new Resumen('A',ventas);
-        ventasB= new Resumen('B',ventas);
-        ventasC= new Resumen('C',ventas);
-        total= new Resumen(ventas);
-  
-        List<Resumen> reporte = new ArrayList<Resumen>();
+        //VARIABLES
+        Resumen ventasA;
+        Resumen ventasB;
+        Resumen ventasC;
+        Resumen total;
+        List<Resumen> reporte;
+        
+        //ASIGNACION
+        ventasA= new Resumen();
+        ventasB= new Resumen();
+        ventasC= new Resumen();
+        total= new Resumen();
+        reporte = new ArrayList<Resumen>();
+        
+        //PROCESO
+        ventasA.setResumenPorCategoria('A',ventas);
+        ventasB.setResumenPorCategoria('B',ventas);
+        ventasC.setResumenPorCategoria('C',ventas);
+        total.setResumenTotal(ventas);
         reporte.add(ventasA);
         reporte.add(ventasB);
         reporte.add(ventasC);
         reporte.add(total);
         
+        //RESULTADO
         return reporte;
         
     }

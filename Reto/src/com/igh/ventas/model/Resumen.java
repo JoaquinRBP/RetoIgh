@@ -18,7 +18,13 @@ public class Resumen {
     public float importecomision;
     private List<Venta> ventas;
     
-    public Resumen(char categ, List<Venta> ventas){
+    public Resumen(){
+        
+    }
+    
+   
+    
+    public void setResumenPorCategoria(char categ, List<Venta> ventas){
         this.categoria=categ;
         this.ventas=filtrarVentas(ventas);
         this.nventas=calcularNVentas();
@@ -27,7 +33,7 @@ public class Resumen {
         this.importecomision = calcularImporteComision();
     }
     
-    public Resumen(List<Venta> ventas){
+    public void setResumenTotal(List<Venta> ventas){
         this.ventas=ventas;
         this.nventas=calcularNVentas();
         this.ncamion=calcularNCamion();

@@ -17,7 +17,12 @@ public class Venta {
     public float porcxcomision;
     public float comisiontotal;
     
-    public Venta(int nventa, char categoria, int cant){
+    public Venta(){
+        
+        
+    }
+    
+    public void setVenta(int nventa, char categoria, int cant){
         this.nventa=nventa;
         this.categoria=categoria;
         this.cant = cant;
@@ -25,7 +30,6 @@ public class Venta {
         this.total = cant*this.precioxcamion;
         this.porcxcomision=porcentajeComision(this.precioxcamion,cant);
         this.comisiontotal = (porcxcomision*total)/100;
-        
     }
     
     public float getTotal(){
