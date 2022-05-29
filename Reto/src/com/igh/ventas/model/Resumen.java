@@ -44,7 +44,7 @@ public class Resumen {
     private List<Venta> filtrarVentas(List<Venta> ventas){
         List<Venta> filtro=
         ventas.stream()
-            .filter(e->e.categoria==categoria)
+            .filter(e->e.getCategoria()==categoria)
                 .collect(Collectors.toList());
         return filtro;
     }
@@ -58,7 +58,7 @@ public class Resumen {
         int ncamion=0;
         
         for(int i=0;i<ventas.size();i++)
-            ncamion = ventas.get(i).cant + ncamion;
+            ncamion = ventas.get(i).getCant() + ncamion;
         
         return ncamion;
     }
@@ -67,7 +67,7 @@ public class Resumen {
         float importe=0;
         
         for(int i=0;i<ventas.size();i++)
-            importe = ventas.get(i).total + importe;
+            importe = ventas.get(i).getTotal() + importe;
         
         return importe;
     }
@@ -76,7 +76,7 @@ public class Resumen {
         float importe=0;
         
         for(int i=0;i<ventas.size();i++)
-            importe = ventas.get(i).comisiontotal + importe;
+            importe = ventas.get(i).getComisiontotal() + importe;
         
         return importe;
     }

@@ -320,10 +320,10 @@ public class ProcesVentaView extends javax.swing.JFrame {
         venta= this.ventasController.procesarVenta(categ,cant);
         
         //REPORTE
-        this.jtfImpComision.setText(String.valueOf(venta.comisiontotal));
-        this.jtfImpVenta.setText(String.valueOf(venta.total));
-        this.jtfPorcComision.setText(String.valueOf(venta.porcxcomision));
-        this.jtfPrecioCamioneta.setText(String.valueOf(venta.precioxcamion));
+        this.jtfImpComision.setText(String.valueOf(venta.getComisiontotal()));
+        this.jtfImpVenta.setText(String.valueOf(venta.getTotal()));
+        this.jtfPorcComision.setText(String.valueOf(venta.getPorcxcomision()));
+        this.jtfPrecioCamioneta.setText(String.valueOf(venta.getPrecioxcamion()));
         this.setFormularioActivo(false);
     }//GEN-LAST:event_btnCalcularActionPerformed
 //nuevo

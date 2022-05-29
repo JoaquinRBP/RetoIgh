@@ -9,17 +9,63 @@ package com.igh.ventas.model;
  * @author ASPIRE5
  */
 public class Venta {
-     public int nventa;
-    public char categoria;
-    public int cant;
-    public float precioxcamion;
-    public float total;
-    public float porcxcomision;
-    public float comisiontotal;
+    private int nventa;
+    private char categoria;
+    private int cant;
+    private float precioxcamion;
+    private float total;
+    private float porcxcomision;
+    private float comisiontotal;
     
     public Venta(){
-        
-        
+    }
+
+    public int getNventa() {
+        return nventa;
+    }
+
+    public void setNventa(int nventa) {
+        this.nventa = nventa;
+    }
+
+    public char getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(char categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getCant() {
+        return cant;
+    }
+
+    public void setCant(int cant) {
+        this.cant = cant;
+    }
+
+    public float getPrecioxcamion() {
+        return precioxcamion;
+    }
+
+    public void setPrecioxcamion(float precioxcamion) {
+        this.precioxcamion = precioxcamion;
+    }
+
+    public float getPorcxcomision() {
+        return porcxcomision;
+    }
+
+    public void setPorcxcomision(float porcxcomision) {
+        this.porcxcomision = porcxcomision;
+    }
+
+    public float getComisiontotal() {
+        return comisiontotal;
+    }
+
+    public void setComisiontotal(float comisiontotal) {
+        this.comisiontotal = comisiontotal;
     }
     
     public void setVenta(int nventa, char categoria, int cant){

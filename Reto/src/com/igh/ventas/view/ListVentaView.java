@@ -7,18 +7,21 @@ import com.igh.ventas.controller.VentasController;
 import com.igh.ventas.model.Venta;
 import java.awt.GridLayout;
 import java.util.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author DELL
  */
 public class ListVentaView extends javax.swing.JFrame {
+    DefaultTableModel modelo = new DefaultTableModel();
 
     static VentasController ventasController;
     
     public ListVentaView(VentasController ventasController) {
         initComponents();
         this.ventasController=ventasController;
+        this.setDatos();
         this.setLocationRelativeTo(null);
     }
         
@@ -32,7 +35,8 @@ public class ListVentaView extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,35 +47,38 @@ public class ListVentaView extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Mostrar Lista");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(tabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(143, 143, 143))))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jButton1)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jButton1)
-                .addGap(103, 103, 103)
-                .addComponent(jButton2)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,24 +95,6 @@ public class ListVentaView extends javax.swing.JFrame {
     
     
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //VARIABLES
-        List<Venta>ventas; 
-        
-        //LECTURA DE DATOS o ASIGNACION
-        ventas = new ArrayList<Venta>();
-        
-        //PROCESO
-        ventas= ventasController.obtenerListaVentas();
-        
-        //RESULTADO
-        System.out.println("N° Venta | Categoria | Cantidad | Precio unit. | Importe V. | %Comision | Importe C.");
-        for(int i=0; i<ventas.size();i++){
-            System.out.println(ventas.get(i).nventa+"        |      "+ventas.get(i).categoria+"    |    "+ventas.get(i).cant+"    |    "+ventas.get(i).precioxcamion+"    |    "+ventas.get(i).total+"    |   "+ventas.get(i).porcxcomision+"    |    "+ventas.get(i).comisiontotal);
-        }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -140,9 +129,33 @@ public class ListVentaView extends javax.swing.JFrame {
             }
         });
     }
+public void setDatos(){
+        List<Venta> ventas;
+        ventas=new ArrayList<Venta>();
+        ventas=ventasController.obtenerListaVentas();
+        modelo.addColumn("N° Venta");
+        modelo.addColumn("Categoria");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Precio unit.");
+        modelo.addColumn("Importe V.");
+        modelo.addColumn("%Comision");
+        modelo.addColumn("Importe C.");
+        for(int i=0;i<ventas.size();i++){
+            Object[] filas = new Object[]{""+ventas.get(i).getNventa(),
+                ""+ventas.get(i).getCategoria(),
+                ""+ventas.get(i).getCant(),
+                ""+ventas.get(i).getPrecioxcamion(),
+                ""+ventas.get(i).getTotal(),
+                ""+ventas.get(i).getPorcxcomision(),
+                ""+ventas.get(i).getComisiontotal()};
+            modelo.addRow(filas);
+        }
+        this.tabla.setModel(modelo);
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
