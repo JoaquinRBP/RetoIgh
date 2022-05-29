@@ -20,6 +20,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
     public ProcesVentaView(VentasController ventasController) {
         initComponents();
         this.ventasController = ventasController;
+        this.setNumeroVentas();
         this.setLocationRelativeTo(null);
     }
 
@@ -372,6 +373,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
         this.jtfImpVenta.setText("");
         this.jtfPorcComision.setText("");
         this.jtfPrecioCamioneta.setText("");
+        this.setNumeroVentas();
         this.setFormularioActivo(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 //volver
@@ -413,6 +415,11 @@ public class ProcesVentaView extends javax.swing.JFrame {
                 new ProcesVentaView(ventasController).setVisible(true);
             }
         });
+    }
+    private void setNumeroVentas(){
+        int numeroventas;
+        numeroventas=this.ventasController.obtenerListaVentas().size();
+        this.lblVentaNro.setText("VENTA NRO: "+(numeroventas+1));
     }
 
     private void setFormularioActivo(boolean estado) {
