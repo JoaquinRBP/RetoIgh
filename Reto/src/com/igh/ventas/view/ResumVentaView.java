@@ -4,7 +4,6 @@
  */
 package com.igh.ventas.view;
 
-import com.igh.ventas.model.VentaListaModel;
 
 /**
  *
@@ -12,20 +11,12 @@ import com.igh.ventas.model.VentaListaModel;
  */
 public class ResumVentaView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ResumVentaView
-     */
-    private VentaListaModel listaventa=new VentaListaModel();
+    
     public ResumVentaView() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public ResumVentaView(VentaListaModel listaventa) {
-        this.listaventa=listaventa;
-        initComponents();
-        this.setDatos();
-        this.setLocationRelativeTo(null);
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -332,7 +323,7 @@ public class ResumVentaView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        MenuView menu=new MenuView(listaventa);
+        MenuView menu=new MenuView();
         menu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -371,18 +362,18 @@ public class ResumVentaView extends javax.swing.JFrame {
         });
     }
     public void setDatos(){
-        this.jtfCamionA.setText("us$"+listaventa.getCantCamionetaA());
-        this.jtfCamionB.setText("us$"+listaventa.getCantCamionetaB());
-        this.jtfCamionC.setText("us$"+listaventa.getCantCamionetaC());
-        this.jtfComisionA.setText("us$"+listaventa.getImportComisionA());
-        this.jtfComisionB.setText("us$"+listaventa.getImportComisionB());
-        this.jtfComisionC.setText("us$"+listaventa.getImportComisionC());
-        this.jtfImporteA.setText("us$"+listaventa.getImportVentaA());
-        this.jtfImporteB.setText("us$"+listaventa.getImportVentaB());
-        this.jtfImporteC.setText("us$"+listaventa.getImportVentaC());
-        this.jtfVentaA.setText("us$"+listaventa.getVentaCategA());
-        this.jtfVentaB.setText("us$"+listaventa.getVentaCategB());
-        this.jtfVentaC.setText("us$"+listaventa.getVentaCategC());
+        this.jtfCamionA.setText("us$");
+        this.jtfCamionB.setText("us$");
+        this.jtfCamionC.setText("us$"); 
+        this.jtfComisionA.setText("us$");
+        this.jtfComisionB.setText("us$");
+        this.jtfComisionC.setText("us$");
+        this.jtfImporteA.setText("us$");
+        this.jtfImporteB.setText("us$");
+        this.jtfImporteC.setText("us$");
+        this.jtfVentaA.setText("us$");
+        this.jtfVentaB.setText("us$");
+        this.jtfVentaC.setText("us$");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

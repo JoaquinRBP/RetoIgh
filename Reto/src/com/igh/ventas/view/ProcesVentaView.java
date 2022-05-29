@@ -4,9 +4,7 @@
  */
 package com.igh.ventas.view;
 
-import com.igh.ventas.controller.ProcesVentaController;
-import com.igh.ventas.model.VentaListaModel;
-import com.igh.ventas.model.VentaModel;
+
 import java.util.ArrayList;
 
 /**
@@ -18,16 +16,11 @@ public class ProcesVentaView extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
-    private VentaListaModel listaventa=new VentaListaModel();
     public ProcesVentaView() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public ProcesVentaView(VentaListaModel listaventa){
-        this.listaventa=listaventa;
-        initComponents();
-        this.setLocationRelativeTo(null);
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -331,36 +324,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfCategoriaActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        // TODO add your handling code here:
-        //Variables
-        char categoria;
-        int cantCamionetas, importVenta, porcComision,precioCamioneta;
-        float importComision;
-        //Datos
-        categoria=this.jtfCategoria.getText().charAt(0);
-        cantCamionetas=Integer.parseInt(this.jtfCantCamionetas.getText());
-        //Proceso
-            //Obtenemos el la venta unitaria y la comision
-        precioCamioneta=this.getprecioCamioneta(categoria);
-        porcComision=this.getComision(cantCamionetas, categoria);
-            //Calculamos resultados
-        ProcesVentaController proces=new ProcesVentaController();
-        importVenta=proces.importVenta(precioCamioneta, cantCamionetas);
-        importComision=proces.importComision(porcComision, importVenta);
-            //Creamos venta
-        VentaModel venta=new VentaModel(cantCamionetas,categoria);
-        venta.setPrecioCamioneta(precioCamioneta);
-        venta.setPorcComision(porcComision);
-        venta.setImportComision(importComision);
-        venta.setImportVenta(importVenta);
-            //Almacenamos los datos de nuestra venta
-        proces.setDatosVenta(listaventa, venta);
-        listaventa.setVenta(venta);
-        //Reporte
-        this.jtfPrecioCamioneta.setText(""+precioCamioneta);
-        this.jtfPorcComision.setText(""+porcComision);
-        this.jtfImpVenta.setText(""+importVenta);
-        this.jtfImpComision.setText(""+importComision);
+       
         this.setFormularioActivo(false);
     }//GEN-LAST:event_btnCalcularActionPerformed
 
@@ -378,7 +342,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        MenuView menuView = new MenuView(listaventa);
+        MenuView menuView = new MenuView();
         menuView.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -423,24 +387,8 @@ public class ProcesVentaView extends javax.swing.JFrame {
             }
         });
     }
-    public int getprecioCamioneta(char categoria){
-        return switch (categoria) {
-            case 'A' -> 55;
-            case 'B' -> 75;
-            case 'C' -> 93;
-            default -> 0;
-        };
-    }
-    public int getComision(int cantCamioneta, char categoria){
-        int comision;
-        comision = switch (categoria) {
-            case 'A' -> (cantCamioneta<10)?4:6;
-            case 'B' -> (cantCamioneta<10)?6:10;
-            case 'C' -> (cantCamioneta<10)?10:15;
-            default -> 0;
-        };
-        return comision;
-    }
+    
+   
     private void setFormularioActivo(boolean estado){
         this.btnCalcular.setEnabled(estado);
         this.jtfCategoria.setEnabled(estado);
