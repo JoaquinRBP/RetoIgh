@@ -4,15 +4,46 @@
  */
 package com.igh.ventas.service;
 
+import com.igh.ventas.model.VentaListaModel;
+import com.igh.ventas.model.VentaModel;
+
 /**
  *
  * @author DELL
  */
 public class ProcesVentaService {
-    public int importCamioneta(int precio, int cantidad){
-    return precio*cantidad;
+    public int importVenta(int precioCamioneta, int cantCamionetas){
+    return precioCamioneta*cantCamionetas;
     }
-    public float importComision(int porcenComision, int precVenta){
-        return (porcenComision*precVenta)/100;
+    public float importComision(int porcenComision, int importVenta){
+        return (float)(porcenComision*importVenta)/100;
     }
+    public void setPrecioCamioneta(VentaListaModel listaventa, int precioCamioneta){
+
+    }
+    public void setAcumVenta(VentaListaModel listaventa, VentaModel venta){
+        switch(venta.getCategoria()){
+            case 'A':
+                listaventa.setCantCamionetaA((listaventa.getCantCamionetaA()+venta.getCantCamionetas()));
+                listaventa.setImportComisionA((listaventa.getImportComisionA()+venta.getImportComision()));
+                listaventa.setImportVentaA((listaventa.getImportVentaA()+venta.getImportVenta()));
+                listaventa.setVentaCategA((listaventa.getVentaCategA()+1));
+                break;
+            case 'B':
+                listaventa.setCantCamionetaB((listaventa.getCantCamionetaB()+venta.getCantCamionetas()));
+                listaventa.setImportComisionB((listaventa.getImportComisionB()+venta.getImportComision()));
+                listaventa.setImportVentaB((listaventa.getImportVentaB()+venta.getImportVenta()));
+                listaventa.setVentaCategB((listaventa.getVentaCategB()+1));
+                break;
+            case 'C':
+                listaventa.setCantCamionetaC((listaventa.getCantCamionetaC()+venta.getCantCamionetas()));
+                listaventa.setImportComisionC((listaventa.getImportComisionC()+venta.getImportComision()));
+                listaventa.setImportVentaC((listaventa.getImportVentaC()+venta.getImportVenta()));
+                listaventa.setVentaCategC((listaventa.getVentaCategC()+1));
+                break;
+            default:break;
+        }
+    }
+    
+    
 }

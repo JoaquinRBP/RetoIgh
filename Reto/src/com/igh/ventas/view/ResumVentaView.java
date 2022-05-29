@@ -4,6 +4,8 @@
  */
 package com.igh.ventas.view;
 
+import com.igh.ventas.model.VentaListaModel;
+
 /**
  *
  * @author DELL
@@ -13,8 +15,15 @@ public class ResumVentaView extends javax.swing.JFrame {
     /**
      * Creates new form ResumVentaView
      */
+    private VentaListaModel listaventa=new VentaListaModel();
     public ResumVentaView() {
         initComponents();
+        this.setLocationRelativeTo(null);
+    }
+    public ResumVentaView(VentaListaModel listaventa) {
+        this.listaventa=listaventa;
+        initComponents();
+        this.setDatos();
         this.setLocationRelativeTo(null);
     }
 
@@ -79,7 +88,7 @@ public class ResumVentaView extends javax.swing.JFrame {
 
         jLabel8.setText("COMISION");
 
-        jLabel9.setText("-------------------------------------------------------------------------------------------");
+        jLabel9.setText("---------------------------------------------------------------------------------------------------");
 
         jLabel10.setText("A");
 
@@ -123,7 +132,7 @@ public class ResumVentaView extends javax.swing.JFrame {
         jtfComisionC.setEditable(false);
         jtfComisionC.setBorder(null);
 
-        jLabel13.setText("-------------------------------------------------------------------------------------------");
+        jLabel13.setText("----------------------------------------------------------------------------------------------------");
 
         jLabel14.setText("TOTALES");
 
@@ -196,8 +205,7 @@ public class ResumVentaView extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -323,6 +331,9 @@ public class ResumVentaView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        MenuView menu=new MenuView(listaventa);
+        menu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -358,6 +369,20 @@ public class ResumVentaView extends javax.swing.JFrame {
                 new ResumVentaView().setVisible(true);
             }
         });
+    }
+    public void setDatos(){
+        this.jtfCamionA.setText("us$"+listaventa.getCantCamionetaA());
+        this.jtfCamionB.setText("us$"+listaventa.getCantCamionetaB());
+        this.jtfCamionC.setText("us$"+listaventa.getCantCamionetaC());
+        this.jtfComisionA.setText("us$"+listaventa.getImportComisionA());
+        this.jtfComisionB.setText("us$"+listaventa.getImportComisionB());
+        this.jtfComisionC.setText("us$"+listaventa.getImportComisionC());
+        this.jtfImporteA.setText("us$"+listaventa.getImportVentaA());
+        this.jtfImporteB.setText("us$"+listaventa.getImportVentaB());
+        this.jtfImporteC.setText("us$"+listaventa.getImportVentaC());
+        this.jtfVentaA.setText("us$"+listaventa.getVentaCategA());
+        this.jtfVentaB.setText("us$"+listaventa.getVentaCategB());
+        this.jtfVentaC.setText("us$"+listaventa.getVentaCategC());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,10 @@
  */
 package com.igh.ventas.view;
 
+import com.igh.ventas.model.VentaListaModel;
+import com.igh.ventas.model.VentaModel;
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -13,10 +17,26 @@ public class MenuView extends javax.swing.JFrame {
     /**
      * Creates new form ProcesVentaView
      */
+    private VentaListaModel listaventa=new VentaListaModel();
     public MenuView() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    public MenuView(VentaListaModel listaventa) {
+        this.listaventa=listaventa;
+        initComponents();
+        this.setLocationRelativeTo(null);
+    }
+
+    public VentaListaModel getListaventa() {
+        return listaventa;
+    }
+
+    public void setListaventa(VentaListaModel listaventa) {
+        this.listaventa = listaventa;
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,7 +151,7 @@ public class MenuView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        ProcesVentaView procesVentaView = new ProcesVentaView();
+        ProcesVentaView procesVentaView = new ProcesVentaView(listaventa);
         procesVentaView.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -142,7 +162,7 @@ public class MenuView extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        ResumVentaView resumVentaView = new ResumVentaView();
+        ResumVentaView resumVentaView = new ResumVentaView(listaventa);
         resumVentaView.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
