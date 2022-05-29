@@ -23,10 +23,11 @@ public class VentasService {
     
     
     
-    public void procesarVenta(char categ, int cant){
+    public Venta procesarVenta(char categ, int cant){
         int n=ventas.size()+1;
         Venta venta = new Venta(n,categ,cant);
         ventas.add(venta);
+        return venta;
     }
 
     public Venta obtenerVenta(int nventa){

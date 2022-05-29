@@ -20,7 +20,7 @@ public class Resumen {
     
     public Resumen(char categ, List<Venta> ventas){
         this.categoria=categ;
-        this.ventas=filtrarVentas();
+        this.ventas=filtrarVentas(ventas);
         this.nventas=calcularNVentas();
         this.ncamion=calcularNCamion();
         this.importeventas=calcularImporteVentas();
@@ -35,7 +35,7 @@ public class Resumen {
         this.importecomision = calcularImporteComision();
     }
     
-    private List<Venta> filtrarVentas(){
+    private List<Venta> filtrarVentas(List<Venta> ventas){
         List<Venta> filtro=
         ventas.stream()
             .filter(e->e.categoria==categoria)

@@ -5,19 +5,19 @@
 package com.igh.ventas;
 
 import com.igh.ventas.view.MenuView;
+import com.igh.ventas.controller.VentasController;
 
 /**
  *
  * @author DELL
  */
 public class Reto {
-
-    /**
-     * @param args the command line arguments
-     */
+    
+    
     public static void main(String[] args) {
-        // TODO code application logic here
-        MenuView.main(args);
+        VentasController ventasController = new VentasController();
+        MenuView menu = new MenuView(ventasController);
+        menu.main(args);
     }
     
 }
