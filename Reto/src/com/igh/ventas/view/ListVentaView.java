@@ -166,10 +166,10 @@ public void setDatos(){
             Object[] filas = new Object[]{""+ventas.get(i).getNventa(),
                 ""+ventas.get(i).getCategoria(),
                 ""+ventas.get(i).getCant(),
-                ""+ventas.get(i).getPrecioxcamion(),
-                ""+ventas.get(i).getTotal(),
+                "us$"+ventas.get(i).getPrecioxcamion(),
+                "us$"+ventas.get(i).getTotal(),
                 ""+ventas.get(i).getPorcxcomision(),
-                ""+ventas.get(i).getComisiontotal()};
+                "us$"+ventas.get(i).getComisiontotal()};
             modelo.addRow(filas);
         }
         this.tabla.setModel(modelo);

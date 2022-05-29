@@ -376,19 +376,19 @@ public class ResumVentaView extends javax.swing.JFrame {
         this.jtfCamionA.setText(String.valueOf(reporte.get(0).ncamion));
         this.jtfCamionB.setText(String.valueOf(reporte.get(1).ncamion));
         this.jtfCamionC.setText(String.valueOf(reporte.get(2).ncamion)); 
-        this.jtfComisionA.setText(String.valueOf(reporte.get(0).importecomision));
-        this.jtfComisionB.setText(String.valueOf(reporte.get(1).importecomision));
-        this.jtfComisionC.setText(String.valueOf(reporte.get(2).importecomision));
-        this.jtfImporteA.setText(String.valueOf(reporte.get(0).importeventas));
-        this.jtfImporteB.setText(String.valueOf(reporte.get(1).importeventas));
-        this.jtfImporteC.setText(String.valueOf(reporte.get(2).importeventas));
+        this.jtfComisionA.setText("us$"+String.valueOf(reporte.get(0).importecomision));
+        this.jtfComisionB.setText("us$"+String.valueOf(reporte.get(1).importecomision));
+        this.jtfComisionC.setText("us$"+String.valueOf(reporte.get(2).importecomision));
+        this.jtfImporteA.setText("us$"+String.valueOf(reporte.get(0).importeventas));
+        this.jtfImporteB.setText("us$"+String.valueOf(reporte.get(1).importeventas));
+        this.jtfImporteC.setText("us$"+String.valueOf(reporte.get(2).importeventas));
         this.jtfVentaA.setText(String.valueOf(reporte.get(0).nventas));
         this.jtfVentaB.setText(String.valueOf(reporte.get(1).nventas));
         this.jtfVentaC.setText(String.valueOf(reporte.get(2).nventas));
         //total
         this.jtfCamionTotal.setText(String.valueOf(reporte.get(3).ncamion));
-        this.jtfComisionTotal.setText(String.valueOf(reporte.get(3).importecomision));
-        this.jtfImporteTotal.setText(String.valueOf(reporte.get(3).importeventas));
+        this.jtfComisionTotal.setText("us$"+String.valueOf(reporte.get(3).importecomision));
+        this.jtfImporteTotal.setText("us$"+String.valueOf(reporte.get(3).importeventas));
         this.jtfVentaTotal.setText(String.valueOf(reporte.get(3).nventas));
     }
 
