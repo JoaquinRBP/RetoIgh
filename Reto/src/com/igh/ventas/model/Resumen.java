@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * @author ASPIRE5
  */
 public class Resumen {
-    public char categoria;
+    public String categoria;
     public int nventas;
     public int ncamion;
     public float importeventas;
@@ -24,7 +24,7 @@ public class Resumen {
     
    
     
-    public void setResumenPorCategoria(char categ, List<Venta> ventas){
+    public void setResumenPorCategoria(String categ, List<Venta> ventas){
         this.categoria=categ;
         this.ventas=filtrarVentas(ventas);
         this.nventas=calcularNVentas();

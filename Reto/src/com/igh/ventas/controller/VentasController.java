@@ -20,7 +20,7 @@ public class VentasController {
         ventasService = new VentasService();
     }
     
-    public Venta procesarVenta(char categ, int cant){
+    public Venta procesarVenta(String categ, int cant){
         //RESULTADO
         return ventasService.procesarVenta(categ, cant);
     }

@@ -20,7 +20,7 @@ public class VentasService {
     
     
     
-    public Venta procesarVenta(char categ, int cant){
+    public Venta procesarVenta(String categ, int cant){
         //VARIABLES
         int n;
         Venta venta;
@@ -59,9 +59,9 @@ public class VentasService {
         reporte = new ArrayList<Resumen>();
         
         //PROCESO
-        ventasA.setResumenPorCategoria('A',ventas);
-        ventasB.setResumenPorCategoria('B',ventas);
-        ventasC.setResumenPorCategoria('C',ventas);
+        ventasA.setResumenPorCategoria("A",ventas);
+        ventasB.setResumenPorCategoria("B",ventas);
+        ventasC.setResumenPorCategoria("C",ventas);
         total.setResumenTotal(ventas);
         reporte.add(ventasA);
         reporte.add(ventasB);

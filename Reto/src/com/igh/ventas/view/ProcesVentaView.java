@@ -4,10 +4,10 @@
  */
 package com.igh.ventas.view;
 
-
 import java.util.ArrayList;
 import com.igh.ventas.model.Venta;
 import com.igh.ventas.controller.VentasController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,13 +16,12 @@ import com.igh.ventas.controller.VentasController;
 public class ProcesVentaView extends javax.swing.JFrame {
 
     static VentasController ventasController;
-    
+
     public ProcesVentaView(VentasController ventasController) {
         initComponents();
-        this.ventasController=ventasController;
+        this.ventasController = ventasController;
         this.setLocationRelativeTo(null);
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -35,9 +34,9 @@ public class ProcesVentaView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jtfCategoria = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtfCantCamionetas = new javax.swing.JTextField();
+        cbxCategoria = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -72,7 +71,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblVentaNro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,6 +93,20 @@ public class ProcesVentaView extends javax.swing.JFrame {
 
         jLabel5.setText("CANTIDAD DE CAMIONETAS");
 
+        jtfCantCamionetas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfCantCamionetasKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfCantCamionetasKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfCantCamionetasKeyTyped(evt);
+            }
+        });
+
+        cbxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "A", "B", "C" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -108,10 +121,10 @@ public class ProcesVentaView extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfCantCamionetas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbxCategoria, 0, 90, Short.MAX_VALUE)
+                            .addComponent(jtfCantCamionetas))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -129,7 +142,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -283,7 +296,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(31, 31, 31)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(37, Short.MAX_VALUE))
@@ -306,31 +319,55 @@ public class ProcesVentaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        try {
+            
+        
         //VARIABLES
-        char categ;
+        String categ;
         int cant;
         Venta venta;
- 
+
         //LECTURA DE DATOS
-        cant= Integer.parseInt(this.jtfCantCamionetas.getText());
-        categ=this.jtfCategoria.getText().charAt(0);
+        cant = Integer.parseInt(this.jtfCantCamionetas.getText());
+
+        categ = this.cbxCategoria.getSelectedItem().toString();
         venta = new Venta();
-        
+//validar
+  if (Integer.parseInt(jtfCantCamionetas.getText())<= 0 ) {
+   
+            jtfCantCamionetas.requestFocus();
+            JOptionPane.showMessageDialog(null,"Debe Ingrese una cantidad mayor a 0");
+            return;
+        }
+
+   if (cbxCategoria.getSelectedIndex()== 0 ) {
+   
+            cbxCategoria.requestFocus();
+            JOptionPane.showMessageDialog(null,"Debe seleccionar  una categoria ");
+            return;
+        }
+   
         //PROCESO
-        venta= this.ventasController.procesarVenta(categ,cant);
-        
+        venta = this.ventasController.procesarVenta(categ, cant);
+
         //REPORTE
         this.jtfImpComision.setText(String.valueOf(venta.getComisiontotal()));
         this.jtfImpVenta.setText(String.valueOf(venta.getTotal()));
         this.jtfPorcComision.setText(String.valueOf(venta.getPorcxcomision()));
         this.jtfPrecioCamioneta.setText(String.valueOf(venta.getPrecioxcamion()));
         this.setFormularioActivo(false);
+        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Ingrese datos "); 
+        }
+        
+        
     }//GEN-LAST:event_btnCalcularActionPerformed
 //nuevo
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
+
         this.jtfCantCamionetas.setText("");
-        this.jtfCategoria.setText("");
+        this.cbxCategoria.setSelectedIndex(0);
         this.jtfImpComision.setText("");
         this.jtfImpVenta.setText("");
         this.jtfPorcComision.setText("");
@@ -345,6 +382,26 @@ public class ProcesVentaView extends javax.swing.JFrame {
         menuView.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jtfCantCamionetasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCantCamionetasKeyReleased
+
+
+    }//GEN-LAST:event_jtfCantCamionetasKeyReleased
+
+    private void jtfCantCamionetasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCantCamionetasKeyPressed
+
+    }//GEN-LAST:event_jtfCantCamionetasKeyPressed
+
+    private void jtfCantCamionetasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfCantCamionetasKeyTyped
+        char SoloNumeros = evt.getKeyChar();
+        if (Character.isLetter(SoloNumeros)) {
+            evt.consume();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(null, "Solo Se puede ingresar numeros");
+
+        }
+    }//GEN-LAST:event_jtfCantCamionetasKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -357,11 +414,10 @@ public class ProcesVentaView extends javax.swing.JFrame {
             }
         });
     }
-    
-   
-    private void setFormularioActivo(boolean estado){
+
+    private void setFormularioActivo(boolean estado) {
         this.btnCalcular.setEnabled(estado);
-        this.jtfCategoria.setEnabled(estado);
+        this.cbxCategoria.setEnabled(estado);
         this.jtfCantCamionetas.setEnabled(estado);
         this.jtfImpComision.setEnabled(!estado);
         this.jtfImpVenta.setEnabled(!estado);
@@ -373,6 +429,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JComboBox<String> cbxCategoria;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -391,7 +448,6 @@ public class ProcesVentaView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jtfCantCamionetas;
-    private javax.swing.JTextField jtfCategoria;
     private javax.swing.JTextField jtfImpComision;
     private javax.swing.JTextField jtfImpVenta;
     private javax.swing.JTextField jtfPorcComision;
