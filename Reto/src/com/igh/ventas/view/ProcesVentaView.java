@@ -26,6 +26,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
     public ProcesVentaView(VentaListaModel listaventa){
         this.listaventa=listaventa;
         initComponents();
+        this.setNumero();
         this.setLocationRelativeTo(null);
     }
 
@@ -372,6 +373,7 @@ public class ProcesVentaView extends javax.swing.JFrame {
         this.jtfImpVenta.setText("");
         this.jtfPorcComision.setText("");
         this.jtfPrecioCamioneta.setText("");
+        this.setNumero();
         this.setFormularioActivo(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -450,6 +452,9 @@ public class ProcesVentaView extends javax.swing.JFrame {
         this.jtfPorcComision.setEnabled(!estado);
         this.jtfPrecioCamioneta.setEnabled(!estado);
         this.btnNuevo.setEnabled(!estado);
+    }
+    private void setNumero(){
+            this.lblVentaNro.setText("VENTA NRO: "+(this.listaventa.getVentas().size()+1));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

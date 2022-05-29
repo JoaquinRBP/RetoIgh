@@ -4,6 +4,7 @@
  */
 package com.igh.ventas.view;
 
+import com.igh.ventas.controller.ProcesVentaController;
 import com.igh.ventas.model.VentaListaModel;
 
 /**
@@ -383,6 +384,12 @@ public class ResumVentaView extends javax.swing.JFrame {
         this.jtfVentaA.setText("us$"+listaventa.getVentaCategA());
         this.jtfVentaB.setText("us$"+listaventa.getVentaCategB());
         this.jtfVentaC.setText("us$"+listaventa.getVentaCategC());
+        ProcesVentaController proces=new ProcesVentaController();
+        this.jtfCamionTotal.setText(""+proces.getTotalCantCamioneta(listaventa));
+        this.jtfComisionTotal.setText(""+proces.getTotalImportComision(listaventa));
+        this.jtfImporteTotal.setText(""+proces.getTotalImportVenta(listaventa));
+        this.jtfVentaTotal.setText(""+proces.getTotalCantVenta(listaventa));
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

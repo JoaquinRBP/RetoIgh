@@ -44,6 +44,18 @@ public class ProcesVentaService {
             default:break;
         }
     }
+    public int getTotalCantCamioneta(VentaListaModel listaventa){
+        return (listaventa.getCantCamionetaA()+listaventa.getCantCamionetaB()+listaventa.getCantCamionetaC());
+    }
+    public float getTotalImportComision(VentaListaModel listaventa){
+        return (listaventa.getImportComisionA()+listaventa.getImportComisionB()+listaventa.getImportComisionC());
+    }
+    public int getTotalImportVenta(VentaListaModel listaventa){
+        return (listaventa.getImportVentaA()+listaventa.getImportVentaB()+listaventa.getImportVentaC());
+    }
+    public int getTotalCantVenta(VentaListaModel listaventa){
+        return (listaventa.getVentaCategA()+listaventa.getVentaCategB()+listaventa.getVentaCategC());
+    }
     
     
 }

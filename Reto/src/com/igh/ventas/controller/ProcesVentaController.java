@@ -27,4 +27,16 @@ public class ProcesVentaController {
     public void setDatosVenta(VentaListaModel listaventa, VentaModel venta){
         this.proces.setAcumVenta(listaventa, venta);
     }
+    public int getTotalCantCamioneta(VentaListaModel listaventa){
+        return this.proces.getTotalCantCamioneta(listaventa);
+    }
+    public float getTotalImportComision(VentaListaModel listaventa){
+        return this.proces.getTotalImportComision(listaventa);
+    }
+    public int getTotalImportVenta(VentaListaModel listaventa){
+        return this.proces.getTotalImportVenta(listaventa);
+    }
+    public int getTotalCantVenta(VentaListaModel listaventa){
+        return this.proces.getTotalCantVenta(listaventa);
+    }
 }
